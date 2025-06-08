@@ -1,0 +1,251 @@
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #b085f5, #e1bee7);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout */
+.main {
+  display: flex;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px;
+}
+
+/* Carte latérale */
+.card {
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #4a148c;
+  text-align: center;
+}
+
+#task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#task-input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#task-form button {
+  padding: 10px;
+  background-color: #7e57c2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#task-form button:hover {
+  background-color: #5e35b1;
+}
+
+#new-tasks {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Board */
+.board {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.board-header {
+  padding: 16px 24px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+}
+
+.board-header h1 {
+  font-size: 24px;
+  color: #4a148c;
+}
+
+.board-content {
+  padding: 24px;
+}
+
+.columns {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.column h2 {
+  font-size: 18px;
+  color: #5e35b1;
+  margin-bottom: 12px;
+}
+
+.card-list {
+  flex-grow: 1;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Tâches */
+.task-card {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  padding-right: 36px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  user-select: none;
+  position: relative;
+}
+
+/* Dragging */
+.task-card.dragging {
+  opacity: 0.5;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Bouton menu (3 points) amélioré */
+.tag-menu-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.tag-menu-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Menu déroulant avec les icônes lettre + couleur */
+.tag-menu {
+  position: absolute;
+  top: 36px;
+  right: 8px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 10;
+}
+
+.tag-menu.show {
+  display: flex;
+}
+
+.option-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.option-icon:hover {
+  transform: scale(1.1);
+}
+
+.option-icon.red {
+  background-color: #e57373;
+  color: #333;
+}
+
+.option-icon.blue {
+  background-color: #64b5f6;
+  color: #333;
+}
+
+.option-icon.yellow {
+  background-color: #fff176;
+  color: #333;
+}
+
+/* Icônes ajoutées à une tâche */
+.task-labels {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.task-label {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+.task-label.red {
+  background-color: #e57373;
+  color: #333;
+}
+
+.task-label.blue {
+  background-color: #64b5f6;
+  color: #333;
+}
+
+.task-label.yellow {
+  background-color: #fff176;
+  color: #333;
+}

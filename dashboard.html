@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau</title>
+    <link rel="icon" href="./assets/logo.png" type="icon/png">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="card">
+            <h3>Nouvelle tâche</h3>
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="Écrire une tâche..." required autocomplete="off">
+                <button type="submit">Ajouter</button>
+            </form>
+
+            <div id="new-tasks" class="card-list">
+                <!-- Tâches créées apparaîtront ici -->
+            </div>
+        </div>
+
+        <div class="board">
+
+            <div class="board-header">
+                <h1>Tableau de bord</h1>
+            </div>
+
+            <div class="board-content">
+                <div class="columns" style="display: flex; gap: 24px;">
+                    <div class="column" id="todo">
+                        <h2>À faire</h2>
+                        <div class="card-list" id="todo-list"
+                             ondrop="drop(event)"
+                             ondragover="allowDrop(event)">
+                        </div>
+                    </div>
+
+                    <div class="column" id="doing">
+                        <h2>En cours</h2>
+                        <div class="card-list"
+                             id="doing-list"
+                             ondrop="drop(event)"
+                             ondragover="allowDrop(event)">
+                        </div>
+                    </div>
+
+                    <div class="column" id="done">
+                        <h2>Fini</h2>
+                        <div class="card-list"
+                             id="done-list"
+                             ondrop="drop(event)"
+                             ondragover="allowDrop(event)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
